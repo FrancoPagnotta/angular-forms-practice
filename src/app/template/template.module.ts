@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TemplateRoutingModule } from './template-routing.module';
 import { BasicsComponent } from './basics/basics.component';
+import { DynamicsComponent } from './dynamics/dynamics.component';
 
 
 @NgModule({
   declarations: [
-    BasicsComponent
+    BasicsComponent,
+    DynamicsComponent
   ],
   imports: [
     CommonModule,
