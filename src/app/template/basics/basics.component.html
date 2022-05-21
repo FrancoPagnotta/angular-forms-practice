@@ -3,26 +3,52 @@
 
 <div class="row w-50">
 	<div class="col">
-		<form>
+		<form 	(ngSubmit)="save(myForm)" 
+				#myForm="ngForm"
+				autocomplete="off">
+			
 			<div class="form-group mb-2">
 				<label> Product </label>
-				<input type="text" 
-							class="form-control"
-							placeholder="product name">
+				<input 	type="text" 
+						class="form-control"
+						ngModel
+						name="product"
+						placeholder="product name">
 				<span class="form-text text-danger"> Product name must have 3 words minimum. </span>
 			</div>
 
 			<div class="form-group mb-2">
 				<label> Price </label>
-				<input type="number" class="form-control">
+				<input 	type="number" 
+						class="form-control"
+						ngModel
+						name="price"
+						placeholder="product price">
 			</div>
 
 			<div class="form-group mb-2">
 				<label> Stock </label>
-				<input type="number" class="form-control">
+				<input 	type="number" 
+						class="form-control"
+						ngModel
+						name="stock"
+						placeholder="stock">
 			</div>
 
 			<button type="submit" class="btn btn-primary mt-3"> Save </button>
+
 		</form>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<span>valid</span>
+		<pre> {{ myForm.valid }} </pre>
+	</div>
+
+	<div class="col">
+		<span>value</span>
+		<pre> {{ myForm.value | json }} </pre>
 	</div>
 </div>
