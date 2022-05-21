@@ -11,7 +11,7 @@ interface MenuItem {
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menu: MenuItem[] = [
+  templateMenu: MenuItem[] = [
     {
       text: 'basics',
       route: './template/basics'
@@ -23,6 +23,21 @@ export class SidebarComponent implements OnInit {
     {
       text: 'switches',
       route: './template/switches'
+    },
+  ]
+
+  reactiveMenu: MenuItem[] = [
+    {
+      text: 'basics',
+      route: './reactive/basics'
+    },
+    {
+      text: 'dynamics',
+      route: './reactive/dynamics'
+    },
+    {
+      text: 'switches',
+      route: './reactive/switches'
     },
   ]
 
