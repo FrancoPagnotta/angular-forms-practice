@@ -14,8 +14,12 @@ export class BasicsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  productNameValid(): boolean {
+  productNameValidation(): boolean {
     return this.myForm?.controls.product?.touched && this.myForm?.controls.product?.invalid;
+  }
+
+  priceValidation(): boolean {
+    return this.myForm?.controls.price?.touched && this.myForm?.controls.price?.invalid;
   }
 
   save(): void {
