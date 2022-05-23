@@ -19,7 +19,7 @@ export class BasicsComponent implements OnInit {
   }
 
   priceValidation(): boolean {
-    return this.myForm?.controls.price?.touched && this.myForm?.controls.price?.invalid;
+    return this.myForm?.controls.price?.touched && this.myForm?.controls.price?.value < 0;
   }
 
   save(): void {
