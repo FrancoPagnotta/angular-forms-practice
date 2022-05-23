@@ -3,7 +3,7 @@
 
 <div class="row w-50">
 	<div class="col">
-		<form 	(ngSubmit)="save(myForm)" 
+		<form 	(ngSubmit)="save()" 
 				#myForm="ngForm"
 				autocomplete="off">
 			
@@ -16,8 +16,9 @@
 						placeholder="product name"
 						required
 						minlength="3">
-				<span class="form-text text-danger"
-						*ngIf="myForm.controls.product?.touched && myForm.controls.product?.invalid"> 
+
+				<span 	class="form-text text-danger"
+						*ngIf="productNameValid()"> 
 					Product name must have 3 words minimum. 
 				</span>
 			</div>
