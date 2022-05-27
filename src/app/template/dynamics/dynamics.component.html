@@ -9,7 +9,7 @@
 				<label> Name </label>
 				<input 	type="text" 
 						class="form-control"
-						ngModel
+						[ngModel]="person.name"
 						name="name"
 						placeholder="name"
 						required
@@ -30,10 +30,13 @@
 			<div class="mb-3 row">
 				<label for=""> Favorites </label>
 				<div class="col-sm-9">
-					<input class="form-control mb-1">
+					<input 	*ngFor="let game of person.favorites; let i = index" 
+							[(ngModel)]="game.name"
+							[name]="'favorite_' + i"
+							class="form-control mb-1">
 				</div>
 			</div>
-			
+
 			<button type="submit" 
 					class="btn btn-primary mt-3"
 					[disabled]="myForm.invalid"
@@ -44,3 +47,6 @@
 		</form>
 	</div>
 </div>
+
+<span>Person</span>
+<pre> {{ person | json }} </pre>
