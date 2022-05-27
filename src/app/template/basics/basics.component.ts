@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 
@@ -24,6 +25,10 @@ export class BasicsComponent implements OnInit {
 
   save(): void {
     console.log(this.myForm);
+    this.myForm.resetForm({
+      price: 0,
+      stock: 0
+    });
   }
 
 }
