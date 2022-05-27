@@ -1,1 +1,46 @@
-<p>dynamics works!</p>
+<h2>Template Dynamics</h2>
+<hr>
+
+<div class="row w-50">
+	<div class="col">
+		<form #myForm="ngForm"
+				autocomplete="off">
+			<div class="form-group mb-2">
+				<label> Name </label>
+				<input 	type="text" 
+						class="form-control"
+						ngModel
+						name="name"
+						placeholder="name"
+						required
+						minlength="3">
+			</div>
+			<span *ngIf="myForm.controls.name?.errors && myForm.controls.name?.touched" class="text-danger"> The name is required. </span>
+			
+			<div class="form-group mb-2">
+				<label> Add </label>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Add favorite">
+					<div class="input-group-append">
+					  <button class="btn btn-outline-primary" type="button">Button</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-3 row">
+				<label for=""> Favorites </label>
+				<div class="col-sm-9">
+					<input class="form-control mb-1">
+				</div>
+			</div>
+			
+			<button type="submit" 
+					class="btn btn-primary mt-3"
+					[disabled]="myForm.invalid"
+					(click)="save()"> 
+					Save 
+			</button>
+
+		</form>
+	</div>
+</div>

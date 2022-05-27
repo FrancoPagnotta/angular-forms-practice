@@ -12,4 +12,8 @@ export class DynamicsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(): void {
+    console.log('form saved')
+  }
+
 }
