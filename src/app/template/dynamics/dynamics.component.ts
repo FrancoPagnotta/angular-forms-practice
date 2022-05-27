@@ -30,6 +30,8 @@ export class DynamicsComponent implements OnInit {
     ]
   }
 
+  newFavorite: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -37,6 +39,20 @@ export class DynamicsComponent implements OnInit {
 
   save(): void {
     console.log('form saved')
+  }
+
+  addFavorite(): void {
+    const newGame: Favorite = {
+      id: this.person.favorites.length + 1,
+      name: this.newFavorite
+    }
+
+    this.person.favorites.push({...newGame});
+    this.newFavorite = '';
+  }
+
+  deleteFavorite(index: number): void {
+    this.person.favorites.splice(index, 1);
   }
 
 }
