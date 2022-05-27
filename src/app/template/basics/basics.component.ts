@@ -9,6 +9,11 @@ import { FormControl, NgForm } from '@angular/forms';
 })
 export class BasicsComponent implements OnInit {
   @ViewChild('myForm') myForm!: NgForm;
+  initForm = {
+    product: '',
+    price: 0,
+    stock: 0
+  }
 
   constructor() { }
 

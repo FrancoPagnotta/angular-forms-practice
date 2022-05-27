@@ -11,7 +11,7 @@
 				<label> Product </label>
 				<input 	type="text" 
 						class="form-control"
-						ngModel
+						[ngModel]="initForm.product"
 						name="product"
 						placeholder="product name"
 						required
@@ -27,7 +27,7 @@
 				<label> Price </label>
 				<input 	type="number" 
 						class="form-control"
-						ngModel
+						[ngModel]="initForm.price"
 						name="price"
 						placeholder="product price"
 						minlength="0"
@@ -42,7 +42,7 @@
 				<label> Stock </label>
 				<input 	type="number" 
 						class="form-control"
-						ngModel
+						[ngModel]="initForm.stock"
 						name="stock"
 						customMin
 						[minimum]="0"
