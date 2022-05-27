@@ -1,1 +1,71 @@
-<p>basics works!</p>
+<h2>Reactive Basics</h2>
+<hr>
+
+<div class="row w-50">
+	<div class="col">
+		<form autocomplete="off">
+			
+			<div class="form-group mb-2">
+				<label> Product </label>
+				<input 	type="text" 
+						class="form-control"
+						placeholder="product name">
+
+				<span class="form-text text-danger"> 
+					Product name must have 3 words minimum. 
+				</span>
+			</div>
+
+			<div class="form-group mb-2">
+				<label> Price </label>
+				<input 	type="number" 
+						class="form-control"
+						placeholder="product price">
+
+				<span class="form-text text-danger"> 
+					The price is required. 
+				</span>
+			</div>
+
+			<div class="form-group mb-2">
+				<label> Stock </label>
+				<input 	type="number" 
+						class="form-control"
+						placeholder="stock">
+			</div>
+
+			<button type="submit" 
+					class="btn btn-primary mt-3"> 
+					Save 
+			</button>
+
+		</form>
+	</div>
+</div>
+
+<!-- <div class="row">
+	<div class="col">
+		<span>valid</span>
+		<pre> {{ myForm.valid }} </pre>
+	</div>
+
+	<div class="col">
+		<span>pristine</span>
+		<pre> {{ myForm.pristine }} </pre>
+	</div>
+
+	<div class="col">
+		<span>touched</span>
+		<pre> {{ myForm.touched }} </pre>
+	</div>
+
+	<div class="col">
+		<span>value</span>
+		<pre> {{ myForm.value | json }} </pre>
+	</div>
+
+	<div class="col">
+		<span>Custom directive</span>
+		<pre> {{ myForm.controls.stock?.errors | json }} </pre>
+	</div>
+</div> -->
