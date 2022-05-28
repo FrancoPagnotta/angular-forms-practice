@@ -30,8 +30,8 @@ export class DynamicsComponent implements OnInit {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
     } else {
-      this.myForm.reset();
       console.log(this.myForm.value);
+      this.myForm.reset();
     }
   }
 
