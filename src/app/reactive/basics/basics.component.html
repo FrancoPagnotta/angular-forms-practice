@@ -12,8 +12,9 @@
 						formControlName="product"
 						placeholder="product name">
 
-				<span class="form-text text-danger"> 
-					Product name must have 3 words minimum. 
+				<span class="form-text text-danger"
+					  *ngIf="controlIsInvalid('product')"> 
+					Product name must have 4 words minimum. 
 				</span>
 			</div>
 
@@ -24,8 +25,9 @@
 						formControlName="price"
 						placeholder="product price">
 
-				<span class="form-text text-danger"> 
-					The price is required. 
+				<span class="form-text text-danger"
+					  *ngIf="controlIsInvalid('price')"> 
+					The price must be greater or equal than 0. 
 				</span>
 			</div>
 
@@ -35,6 +37,11 @@
 						class="form-control"
 						formControlName="stock"
 						placeholder="stock">
+
+				<span class="form-text text-danger"
+					  *ngIf="controlIsInvalid('stock')"> 
+					The stock must be greater or equal than 0. 
+				</span>
 			</div>
 
 			<button type="submit" 
@@ -66,5 +73,18 @@
 	<div class="col">
 		<span>value</span>
 		<pre> {{ myForm.value | json }} </pre>
+	</div>
+
+	<div class="col">
+		<span>value</span>
+		<pre> {{ myForm.controls.product.errors | json }} </pre>
+	</div>
+	<div class="col">
+		<span>value</span>
+		<pre> {{ myForm.controls.price.errors | json }} </pre>
+	</div>
+	<div class="col">
+		<span>value</span>
+		<pre> {{ myForm.controls.stock.errors | json }} </pre>
 	</div>
 </div>

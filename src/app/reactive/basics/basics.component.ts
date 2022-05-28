@@ -23,9 +23,14 @@ export class BasicsComponent implements OnInit {
   createForm(): void {
     this.myForm = this.formBuilder.group({
       product: ['', [Validators.required, Validators.minLength(4)]],
-      price: [0, [Validators.required, Validators.minLength(0)]],
-      stock: [0, [Validators.required, Validators.minLength(0)]]
+      price: [0, [Validators.required, Validators.min(0)]],
+      stock: [0, [Validators.required, Validators.min(0)]]
     });
+  }
+
+  controlIsInvalid(control: string) {
+    return this.myForm.controls[control].errors 
+        && this.myForm.controls[control].touched
   }
 
 }
