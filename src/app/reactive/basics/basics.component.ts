@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -22,9 +22,9 @@ export class BasicsComponent implements OnInit {
 
   createForm(): void {
     this.myForm = this.formBuilder.group({
-      product: [''],
-      price: [0],
-      stock: [0]
+      product: ['', [Validators.required, Validators.minLength(4)]],
+      price: [0, [Validators.required, Validators.minLength(0)]],
+      stock: [0, [Validators.required, Validators.minLength(0)]]
     });
   }
 
