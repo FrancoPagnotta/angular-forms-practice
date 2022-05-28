@@ -3,12 +3,13 @@
 
 <div class="row w-50">
 	<div class="col">
-		<form autocomplete="off">
+		<form [formGroup]="myForm" autocomplete="off">
 			
 			<div class="form-group mb-2">
 				<label> Product </label>
 				<input 	type="text" 
 						class="form-control"
+						formControlName="product"
 						placeholder="product name">
 
 				<span class="form-text text-danger"> 
@@ -20,6 +21,7 @@
 				<label> Price </label>
 				<input 	type="number" 
 						class="form-control"
+						formControlName="price"
 						placeholder="product price">
 
 				<span class="form-text text-danger"> 
@@ -31,6 +33,7 @@
 				<label> Stock </label>
 				<input 	type="number" 
 						class="form-control"
+						formControlName="stock"
 						placeholder="stock">
 			</div>
 
@@ -43,7 +46,7 @@
 	</div>
 </div>
 
-<!-- <div class="row">
+<div class="row">
 	<div class="col">
 		<span>valid</span>
 		<pre> {{ myForm.valid }} </pre>
@@ -63,9 +66,4 @@
 		<span>value</span>
 		<pre> {{ myForm.value | json }} </pre>
 	</div>
-
-	<div class="col">
-		<span>Custom directive</span>
-		<pre> {{ myForm.controls.stock?.errors | json }} </pre>
-	</div>
-</div> -->
+</div>
