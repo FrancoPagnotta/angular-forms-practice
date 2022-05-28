@@ -33,4 +33,18 @@ export class BasicsComponent implements OnInit {
         && this.myForm.controls[control].touched
   }
 
+  save(): void {
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+    }
+
+    this.myForm.reset({
+      product: '',
+      price: 0,
+      stock: 0
+    });
+
+    console.log(this.myForm.value);
+  }
+
 }
