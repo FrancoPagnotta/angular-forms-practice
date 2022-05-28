@@ -31,9 +31,9 @@
 
 			<div class="mb-3">
 				<label> Favorites </label>
-				<div class="input-group">
-					<div class="input-group-append mb-1">
-						<input 	class="form-control">
+				<div class="input-group" formArrayName="favorites">
+					<div *ngFor="let favorite of favoritesFormArray.controls; let i = index" class="input-group-append mb-1">
+						<input [formControlName]="i" class="form-control">
 						<button class="btn btn-outline-danger mx-1" 
 								type="button"> 
 								Del 
@@ -49,5 +49,16 @@
 			</button>
 
 		</form>
+	</div>
+</div>
+
+<div class="">
+	<div class="">
+		valid
+		{{ myForm.valid | json }}
+	</div>
+	<div class="">
+		value
+		{{ myForm.value | json }}
 	</div>
 </div>
