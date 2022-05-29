@@ -25,7 +25,7 @@ export class DynamicsComponent implements OnInit {
   }
 
   createControl(): void {
-    this.add = this.formBuilder.control(['', [Validators.required, Validators.minLength(4)]]);
+    this.add = this.formBuilder.control('', [Validators.required, Validators.minLength(4)]);
   }
 
   isInvalid(control: string) {
@@ -38,7 +38,15 @@ export class DynamicsComponent implements OnInit {
   }
 
   addFavorite(): void {
-    this.favoritesFormArray.setControl
+    if (this.add.invalid) {
+      return;
+    }
+    this.favoritesFormArray.push(this.formBuilder.control(this.add.value, Validators.required));
+    this.add.reset();
+  }
+
+  deleteFavorite(index: number): void {
+    this.favoritesFormArray.controls.splice(index, 1);
   }
 
   save(): void {
