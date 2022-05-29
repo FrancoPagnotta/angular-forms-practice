@@ -17,13 +17,15 @@
 			<div class="form-group mb-2">
 				<label> Add </label>
 				<div class="input-group mb-3">
-					<input 	type="text" 
-							class="form-control" 
-							placeholder="Add favorite">
+					<input type="text" 
+						   class="form-control" 
+						   placeholder="Add favorite"
+						   [formControl]="add">
 					<div class="input-group-append">
 					  	<button class="btn btn-outline-primary mx-1" 
-					  			type="button">
-								Add
+					  			type="button"
+								(click)="addFavorite()">
+							Add
 						</button>
 					</div>
 				</div>

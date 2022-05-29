@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamics',
@@ -8,12 +8,13 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DynamicsComponent implements OnInit {
   myForm!: FormGroup;
-  favorite: string = '';
+  add!: FormControl;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.createForm();
+    this.createControl();
   }
 
   createForm(): void {
@@ -23,6 +24,10 @@ export class DynamicsComponent implements OnInit {
     });
   }
 
+  createControl(): void {
+    this.add = this.formBuilder.control(['', [Validators.required, Validators.minLength(4)]]);
+  }
+
   isInvalid(control: string) {
     return this.myForm.controls[control].errors 
       && this.myForm.controls[control].touched;
@@ -30,6 +35,10 @@ export class DynamicsComponent implements OnInit {
 
   get favoritesFormArray(): FormArray {
     return this.myForm.controls.favorites as FormArray;
+  }
+
+  addFavorite(): void {
+    this.favoritesFormArray.setControl
   }
 
   save(): void {
