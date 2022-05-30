@@ -8,7 +8,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 })
 export class DynamicsComponent implements OnInit {
   myForm!: FormGroup;
-  add!: FormControl;
+  addFav!: FormControl;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -25,7 +25,7 @@ export class DynamicsComponent implements OnInit {
   }
 
   createControl(): void {
-    this.add = this.formBuilder.control('', [Validators.required, Validators.minLength(4)]);
+    this.addFav = this.formBuilder.control('', Validators.required);
   }
 
   isInvalid(control: string) {
@@ -33,25 +33,31 @@ export class DynamicsComponent implements OnInit {
       && this.myForm.controls[control].touched;
   }
 
+  addFavControlIsInvalid() {
+    return this.favoritesFormArray.controls.length === 0 
+      && this.addFav.touched
+  }
+
   get favoritesFormArray(): FormArray {
     return this.myForm.controls.favorites as FormArray;
   }
 
   addFavorite(): void {
-    if (this.add.invalid) {
+    if (this.addFav.invalid) {
       return;
     }
-    this.favoritesFormArray.push(this.formBuilder.control(this.add.value, Validators.required));
-    this.add.reset();
+    this.favoritesFormArray.push(this.formBuilder.control(this.addFav.value, Validators.required));
+    this.addFav.reset();
   }
 
   deleteFavorite(index: number): void {
-    this.favoritesFormArray.controls.splice(index, 1);
+    this.favoritesFormArray.removeAt(index);
   }
 
   save(): void {
-    if (this.myForm.invalid) {
+    if (this.myForm.invalid || this.favoritesFormArray.controls.length === 0) {
       this.myForm.markAllAsTouched();
+      this.addFav.markAsTouched();
     } else {
       console.log(this.myForm.value);
       this.myForm.reset();

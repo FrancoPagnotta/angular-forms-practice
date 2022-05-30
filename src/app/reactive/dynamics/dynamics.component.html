@@ -20,7 +20,7 @@
 					<input type="text" 
 						   class="form-control" 
 						   placeholder="Add favorite"
-						   [formControl]="add"
+						   [formControl]="addFav"
 						   (keyup.enter)="addFavorite()">
 					<div class="input-group-append">
 					  	<button class="btn btn-outline-primary mx-1" 
@@ -30,6 +30,10 @@
 						</button>
 					</div>
 				</div>
+				<span *ngIf="addFavControlIsInvalid()" 
+					  class="text-danger"> 
+			  		One favorite at least. 
+		  		</span>
 			</div>
 
 			<div class="mb-3">
@@ -53,5 +57,12 @@
 			</button>
 
 		</form>
+	</div>
+</div>
+
+
+<div class="">
+	<div class="">
+		{{ myForm.valid | json }}
 	</div>
 </div>
