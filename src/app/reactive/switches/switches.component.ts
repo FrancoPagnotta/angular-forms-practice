@@ -32,10 +32,13 @@ export class SwitchesComponent implements OnInit {
     if (this.myForm.invalid) {
       console.log('invalid form')
     } else {
-      const formValue = this.myForm.value;
-      delete formValue.conditions;
+      // const formValue = this.myForm.value;
+      // delete formValue.conditions;
+      // this.person = formValue;
+      
+      const {conditions, ...rest} = this.myForm.value; //the same as above but with destructuring, beautiful
+      this.person = rest;
 
-      this.person = formValue;
       this.myForm.reset({...this.person, conditions: true});
     }
   }
